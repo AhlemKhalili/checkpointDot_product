@@ -1,0 +1,25 @@
+PROCEDURE dot_product(v1,v2:ARRAY_OF FLOAT , VAR ps:INTEGER)
+VAR
+        i:INTEGER;
+        l1:= v1.length;
+BEGIN
+    ps:=0;
+    FOR i FROM 0 TO l1-1  STEP step  DO
+        ps:=ps+(v1[i]*v2[i]);
+    END_FOR
+END
+ALGORITHM Vect-ortho
+VAR
+    v :ARRAY_OF FLOAT;
+    i,j:INTEGER;
+    l2:= v.length ;
+BEGIN
+    FOR i FROM 0 TO l2-1 STEP 1  DO
+        FOR j FROM i+1 TO l2-1 STEP 1  DO
+            Dot_product(v[i],v[j],ps)
+            IF (ps=0) THEN
+                Write(v[i],  "and" , v[j], "are orthogonal")
+            END_IF
+        END_FOR
+    END_FOR
+END
